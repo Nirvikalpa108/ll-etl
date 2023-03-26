@@ -1,5 +1,7 @@
-@main def hello: Unit = 
-  println("Hello world!")
-  println(msg)
+@main def hello = println("Hello, World!")
 
-def msg = "I was compiled by Scala 3. :)"
+trait Etl[A, B]:
+  def extract(inputFilePath: String): A
+  def transform(input: A): B
+  def load(data: B, outputFilePath: String): Unit
+
